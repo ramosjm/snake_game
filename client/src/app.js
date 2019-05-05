@@ -50,14 +50,15 @@ document.addEventListener('DOMContentLoaded',()=>{
         {
           snake.speedX = -snake.speedX
           console.log('left if going right');
-        }else if (this.pressedKey == 37 && snake.speedY <0)
+        }else if (this.pressedKey == 37 && snake.speedY >0)
         {
-          snake.speedX = snake.speedY
+          snake.speedX = -snake.speedY
           snake.speedY = 0;
           console.log('left if going down');
-        } else if(this.pressedKey == 37 && snake.speedY > 0)
+        } else if(this.pressedKey == 37 && snake.speedY <0)
         {
-          snake.speedX = -snake.speedY;
+          console.log(snake.speedY);
+          snake.speedX = snake.speedY;
           snake.speedY = 0;
           console.log('left if going up');
         }
