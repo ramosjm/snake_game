@@ -99,9 +99,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
 
         //down arrorw is pressed
-        if (this.pressedKey == 40)
+        if (this.pressedKey == 40 && snake.speedX>0)
         {
+          snake.speedY = snake.speedX;
           snake.speedX = 0;
+          console.log('down if going right');
         }
         // pellet.x+=10;
         snake.newPosition();
