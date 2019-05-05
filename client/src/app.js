@@ -104,7 +104,15 @@ document.addEventListener('DOMContentLoaded',()=>{
           snake.speedY = snake.speedX;
           snake.speedX = 0;
           console.log('down if going right');
-          
+        } else if (this.pressedKey == 40 && snake.speedX<0)
+        {
+          snake.speedY = -snake.speedX;
+          snake.speedX = 0;
+          console.log('down if going left');
+        }else if (this.pressedKey == 40 && snake.speedY<0)
+        {
+          snake.speedY = - snake.speedY;
+          console.log('down if going up');
         }
         // pellet.x+=10;
         snake.newPosition();
