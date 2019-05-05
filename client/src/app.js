@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded',()=>{
           snake.speedY = snake.speedX;
           snake.speedX = 0;
           console.log('down if going right');
+          
         }
         // pellet.x+=10;
         snake.newPosition();
