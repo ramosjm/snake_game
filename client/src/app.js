@@ -90,18 +90,23 @@ document.addEventListener('DOMContentLoaded',()=>{
           snake.speedY = -snake.speedX;
           snake.speedX = 0;
           console.log('up if going right');
+        } else if (this.pressedKey == 38 && snake.speedX<0)
+        {
+          snake.speedY = snake.speedX;
+          snake.speedX = 0;
+          console.log('up if going left');
         }
 
-      //down arrorw is pressed
-      if (this.pressedKey == 40)
-      {
-        snake.speedX = 0;
+        //down arrorw is pressed
+        if (this.pressedKey == 40)
+        {
+          snake.speedX = 0;
+        }
+        // pellet.x+=10;
+        snake.newPosition();
+        snake.update();
+        console.log(snake.y);
       }
-      // pellet.x+=10;
-      snake.newPosition();
-      snake.update();
-      console.log(snake.y);
-    }
   }
 
   function stop (){
