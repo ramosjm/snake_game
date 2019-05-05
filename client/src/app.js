@@ -1,5 +1,4 @@
-const Snake = require("./models/snake.js");
-const Pellet = require("./models/pellet.js");
+const Component = require("./models/component.js");
 const Wall = require("./models/wall.js");
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -8,9 +7,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   const start = function() {
     gameCanvas = document.querySelector("#game-container");
     context = gameCanvas.getContext("2d");
-    pellet = new Pellet(15,15,"blue",40,40,context);
+    pellet = new Component(15,15,"blue",40,40,context);
 
-    snake = new Snake(20,20,"green",70,50,context);
+    snake = new Component(20,20,"green",70,50,context);
     snake.speedX+=1;
 
     leftWall = new Wall(2,300,"red",0,0,context);

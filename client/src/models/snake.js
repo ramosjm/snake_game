@@ -1,23 +1,16 @@
-const Snake = function(width,height,colour,x,y,context){
-  this.width = width;
-  this.height = height;
-  this.colour = colour;
-  this.x = x;
-  this.y = y;
-  this.speedX = 0;
-  this.speedY = 0;
-  this.context = context;
+const Snake = function(piece1,piece2,piece3){
+  this.components = [piece1,piece2,piece3];
 };
 
-Snake.prototype.update = function () {
-  const ctx = this.context;
-  ctx.fillStyle = this.colour;
-  ctx.fillRect(this.x, this.y, this.width, this.height);
+
+Snake.prototype.update = function(){
+  this.components.forEach((component)=>{
+    console.log(component);
+  });
 };
 
-Snake.prototype.newPosition = function(){
-  this.x += this.speedX;
-  this.y += this.speedY;
+Snake.prototype.eat = function(component){
+  this.components.push(component);
 };
 
 module.exports = Snake;
