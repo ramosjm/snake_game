@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded',()=>{
       if (this.pressedKey == 37 && snake.speedX >0)
         {
           snake.speedX = -snake.speedX
-          snake.speedY = 0;
           console.log('left if going right');
         }else if (this.pressedKey == 37 && snake.speedY <0)
         {
@@ -67,25 +66,30 @@ document.addEventListener('DOMContentLoaded',()=>{
       if (this.pressedKey == 39 && snake.speedX <0)
         {
           snake.speedX = -snake.speedX;
-          snake.speedY = 0;
           console.log('right if going left');
         }else if (this.pressedKey == 39 && snake.speedY <0)
         {
-          snake.speedX = -snake.speedY
+          snake.speedX = -snake.speedY;
           snake.speedY = 0;
           console.log('right if going up');
         } else if (this.pressedKey == 39 && snake.speedY >0)
         {
-
-        }{
+          snake.speedX = snake.speedY;
           snake.speedY = 0;
+          console.log('right if going down');
         }
 
       //up arrow is pressed
-      if (this.pressedKey == 38 && snake.speedY<=0)
+      if (this.pressedKey == 38 && snake.speedY>0)
         {
+          snake.speedY = -snake.speedY;
           snake.speedX = 0;
-          console.log('up', snake.y);
+          console.log('up if going down');
+        } else if (this.pressedKey == 38 && snake.speedX>0)
+        {
+          snake.speedY = -snake.speedX;
+          snake.speedX = 0;
+          console.log('up if going right');
         }
 
       //down arrorw is pressed
