@@ -37,5 +37,11 @@ Snake.prototype.turnRight = function(){
   });
 };
 
+Snake.prototype.goUp = function(){
+  this.components.forEach((component)=>{
+    component.goUp();
+  });
+}
+
 
 module.exports = Snake;

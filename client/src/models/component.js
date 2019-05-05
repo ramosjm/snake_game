@@ -56,4 +56,23 @@ Component.prototype.turnRight = function(){
   }
 };
 
+Component.prototype.goUp = function(){
+  if (this.speedY>0)
+    {
+      this.speedY = -this.speedY;
+      this.speedX = 0;
+      console.log('up if going down');
+    } else if (this.speedX>0)
+    {
+      this.speedY = -this.speedX;
+      this.speedX = 0;
+      console.log('up if going right');
+    } else if (this.speedX<0)
+    {
+      this.speedY = this.speedX;
+      this.speedX = 0;
+      console.log('up if going left');
+  }
+};
+
 module.exports = Component;
