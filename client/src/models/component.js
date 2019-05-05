@@ -20,4 +20,23 @@ Component.prototype.newPosition = function(){
   this.y += this.speedY;
 };
 
+Component.prototype.turnLeft = function () {
+  if (this.speedX >0)
+  {
+    this.speedX = -this.speedX;
+    console.log('left if going right');
+  }else if (this.speedY >0)
+  {
+    this.speedX = -this.speedY;
+    this.speedY = 0;
+    console.log('left if going down');
+  }else if(this.speedY <0)
+  {
+    this.speedX = this.speedY;
+    this.speedY = 0;
+    console.log('left if going up');
+  }
+
+};
+
 module.exports = Component;

@@ -22,7 +22,18 @@ Snake.prototype.eat = function(component){
 Snake.prototype.changePosition = function(){
   this.components.forEach((component)=>{
     component.newPosition();
-    console.log(component);
+  });
+};
+
+Snake.prototype.turnLeft = function () {
+  this.components.forEach((component)=>{
+    component.turnLeft();
+  });
+};
+
+Snake.prototype.turnRight = function(){
+  this.components.forEach((component)=>{
+    component.turnRight();
   });
 };
 
