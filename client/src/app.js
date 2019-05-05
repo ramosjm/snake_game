@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     snake.speedX+=1;
 
     leftWall = new Wall(2,300,"red",0,0,context);
-    rightWall = new Wall(2,300,"red",296,0,context);
-    topWall = new Wall(300,2,"red",0,296,context);
+    rightWall = new Wall(2,300,"red",298,0,context);
+    topWall = new Wall(300,2,"red",0,298,context);
     bottomWall = new Wall(300,2,"red",0,0,context);
 
     this.interval = setInterval(updateGameArea, 100);
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
 
   function hasHitWall() {
-    if((snake.x >= 296) || (snake.x <= 2)|| (snake.y <= 2)||(snake.y >= 296))
+    if((snake.x >= 278) || (snake.x <= 2)|| (snake.y <= 2)||(snake.y >= 278))
     return true;
   }
 
