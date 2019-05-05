@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   const start = function() {
     gameCanvas = document.querySelector("#game-container");
     context = gameCanvas.getContext("2d");
-    pellet = new Pellet(30,30,"blue",40,40,context);
+    pellet = new Pellet(15,15,"blue",40,40,context);
 
-    snake = new Snake(30,30,"green",70,50,context);
+    snake = new Snake(20,20,"green",70,50,context);
     snake.speedX+=1;
 
     leftWall = new Wall(2,300,"red",0,0,context);
@@ -48,20 +48,19 @@ document.addEventListener('DOMContentLoaded',()=>{
       // left arrow is pressed
       if (this.pressedKey == 37 && snake.speedX >0)
         {
-          snake.speedX = -snake.speedX
+          snake.speedX = -snake.speedX;
           console.log('left if going right');
         }else if (this.pressedKey == 37 && snake.speedY >0)
         {
-          snake.speedX = -snake.speedY
+          snake.speedX = -snake.speedY;
           snake.speedY = 0;
           console.log('left if going down');
         } else if(this.pressedKey == 37 && snake.speedY <0)
         {
-          console.log(snake.speedY);
           snake.speedX = snake.speedY;
           snake.speedY = 0;
           console.log('left if going up');
-        }
+      }
 
       //right arrow is pressed
       if (this.pressedKey == 39 && snake.speedX <0)
@@ -78,7 +77,7 @@ document.addEventListener('DOMContentLoaded',()=>{
           snake.speedX = snake.speedY;
           snake.speedY = 0;
           console.log('right if going down');
-        }
+      }
 
       //up arrow is pressed
       if (this.pressedKey == 38 && snake.speedY>0)
@@ -96,28 +95,28 @@ document.addEventListener('DOMContentLoaded',()=>{
           snake.speedY = snake.speedX;
           snake.speedX = 0;
           console.log('up if going left');
-        }
-
-        //down arrorw is pressed
-        if (this.pressedKey == 40 && snake.speedX>0)
-        {
-          snake.speedY = snake.speedX;
-          snake.speedX = 0;
-          console.log('down if going right');
-        } else if (this.pressedKey == 40 && snake.speedX<0)
-        {
-          snake.speedY = -snake.speedX;
-          snake.speedX = 0;
-          console.log('down if going left');
-        }else if (this.pressedKey == 40 && snake.speedY<0)
-        {
-          snake.speedY = - snake.speedY;
-          console.log('down if going up');
-        }
-        // pellet.x+=10;
-        snake.newPosition();
-        snake.update();
       }
+
+      //down arrorw is pressed
+      if (this.pressedKey == 40 && snake.speedX>0)
+      {
+        snake.speedY = snake.speedX;
+        snake.speedX = 0;
+        console.log('down if going right');
+      } else if (this.pressedKey == 40 && snake.speedX<0)
+      {
+        snake.speedY = -snake.speedX;
+        snake.speedX = 0;
+        console.log('down if going left');
+      }else if (this.pressedKey == 40 && snake.speedY<0)
+      {
+        snake.speedY = - snake.speedY;
+        console.log('down if going up');
+      }
+      // pellet.x+=10;
+      snake.newPosition();
+      snake.update();
+    }
   }
 
   function stop (){
