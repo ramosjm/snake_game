@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     snake.speedX+=1;
 
     leftWall = new Wall(2,300,"red",0,0,context);
-    rightWall = new Wall(2,300,"red",298,0,context);
-    topWall = new Wall(300,2,"red",0,298,context);
+    rightWall = new Wall(2,300,"red",296,0,context);
+    topWall = new Wall(300,2,"red",0,296,context);
     bottomWall = new Wall(300,2,"red",0,0,context);
 
-    this.interval = setInterval(updateGameArea, 300);
+    this.interval = setInterval(updateGameArea, 100);
 
     window.addEventListener('keydown', function (evt) {
       this.pressedKey = evt.keyCode;
