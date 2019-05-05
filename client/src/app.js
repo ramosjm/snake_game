@@ -1,4 +1,5 @@
 const Component = require("./models/component.js");
+const Snake = require("./models/snake.js");
 const Wall = require("./models/wall.js");
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -8,9 +9,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     gameCanvas = document.querySelector("#game-container");
     context = gameCanvas.getContext("2d");
     pellet = new Component(15,15,"blue",40,40,context);
-
-    snake = new Component(20,20,"green",70,50,context);
-    snake.speedX+=1;
+    snake = generateSnake();
+    snake.setSpeed();
+    console.log(snake);
 
     leftWall = new Wall(2,300,"red",0,0,context);
     rightWall = new Wall(2,300,"red",298,0,context);
@@ -25,6 +26,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     window.addEventListener('keyup', function (evt) {
       this.pressedKey = false;
     });
+  }
+
+  function generateSnake(){
+    let snake = new Snake();
+    for (let i = 0; i < 3; i++) {
+      const component = new Component (20,20,"green",70,50,context);
+      snake.eat(component);
+    }
+    return snake;
   }
 
   function clear(context, gameCanvas) {
@@ -113,7 +123,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         console.log('down if going up');
       }
       // pellet.x+=10;
-      snake.newPosition();
+      snake.changePosition();
       snake.update();
     }
   }
@@ -125,6 +135,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   function hasHitWall() {
     if((snake.x >= 278) || (snake.x <= 2)|| (snake.y <= 2)||(snake.y >= 278))
     return true;
+  }
+
+  function eatPellet(pellet){
+    if(snake.x == pellet.x && snake.y == pellet.y){
+      snake.eat(pellet);
+    }
   }
 
   start();
