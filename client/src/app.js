@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     topWall = new Wall(300,2,"red",0,298,context);
     bottomWall = new Wall(300,2,"red",0,0,context);
 
-    this.interval = setInterval(updateGameArea, 400);
+    this.interval = setInterval(updateGameArea, 300);
 
     window.addEventListener('keydown', function (evt) {
       this.pressedKey = evt.keyCode;
@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         // pellet.x+=10;
         snake.newPosition();
         snake.update();
-        console.log(snake.y);
       }
   }
 
