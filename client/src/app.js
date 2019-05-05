@@ -58,25 +58,10 @@ document.addEventListener('DOMContentLoaded',()=>{
       pellet.update();
 
       // left arrow is pressed
-      if (this.pressedKey == 37) snake.turnLeft()
-
+      if (this.pressedKey == 37) snake.turnLeft();
 
       //right arrow is pressed
-      if (this.pressedKey == 39 && snake.speedX <0)
-        {
-          snake.speedX = -snake.speedX;
-          console.log('right if going left');
-        }else if (this.pressedKey == 39 && snake.speedY <0)
-        {
-          snake.speedX = -snake.speedY;
-          snake.speedY = 0;
-          console.log('right if going up');
-        } else if (this.pressedKey == 39 && snake.speedY >0)
-        {
-          snake.speedX = snake.speedY;
-          snake.speedY = 0;
-          console.log('right if going down');
-      }
+      if (this.pressedKey == 39) snake.turnRight();
 
       //up arrow is pressed
       if (this.pressedKey == 38 && snake.speedY>0)

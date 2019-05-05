@@ -36,7 +36,24 @@ Component.prototype.turnLeft = function () {
     this.speedY = 0;
     console.log('left if going up');
   }
+};
 
+Component.prototype.turnRight = function(){
+  if (this.speedX <0)
+  {
+    this.speedX = -this.speedX;
+    console.log('right if going left');
+  }else if (this.pressedKey == 39 && this.speedY <0)
+  {
+    this.speedX = -this.speedY;
+    this.speedY = 0;
+    console.log('right if going up');
+  } else if (this.pressedKey == 39 && this.speedY >0)
+  {
+    this.speedX = this.speedY;
+    this.speedY = 0;
+    console.log('right if going down');
+  }
 };
 
 module.exports = Component;
