@@ -6,7 +6,6 @@ const Snake = function(){
 Snake.prototype.update = function(){
   this.components.forEach((component)=>{
     component.update();
-    console.log(component);
   });
 };
 
@@ -23,6 +22,7 @@ Snake.prototype.eat = function(component){
 Snake.prototype.changePosition = function(){
   this.components.forEach((component)=>{
     component.newPosition();
+    console.log(component);
   });
 };
 

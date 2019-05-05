@@ -30,9 +30,12 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   function generateSnake(){
     let snake = new Snake();
+    let width = 20;
+    let xPosition = 70;
     for (let i = 0; i < 3; i++) {
-      const component = new Component (20,20,"green",70,50,context);
+      const component = new Component (width,20,"green",xPosition,50,context);
       snake.eat(component);
+      xPosition -= width;
     }
     return snake;
   }
