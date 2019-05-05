@@ -67,41 +67,28 @@ document.addEventListener('DOMContentLoaded',()=>{
       if (this.pressedKey == 38) snake.goUp();
 
       //down arrorw is pressed
-      if (this.pressedKey == 40 && snake.speedX>0)
-      {
-        snake.speedY = snake.speedX;
-        snake.speedX = 0;
-        console.log('down if going right');
-      } else if (this.pressedKey == 40 && snake.speedX<0)
-      {
-        snake.speedY = -snake.speedX;
-        snake.speedX = 0;
-        console.log('down if going left');
-      }else if (this.pressedKey == 40 && snake.speedY<0)
-      {
-        snake.speedY = - snake.speedY;
-        console.log('down if going up');
-      }
+      if (this.pressedKey == 40) snake.goDown();
+
       // pellet.x+=10;
       snake.changePosition();
       snake.update();
-    }
-  }
+    };
+  };
 
   function stop (){
     clearInterval(this.interval);
-  }
+  };
 
   function hasHitWall() {
     if((snake.x >= 278) || (snake.x <= 2)|| (snake.y <= 2)||(snake.y >= 278))
     return true;
-  }
+  };
 
   function eatPellet(pellet){
     if(snake.x == pellet.x && snake.y == pellet.y){
       snake.eat(pellet);
-    }
-  }
+    };
+  };
 
   start();
 

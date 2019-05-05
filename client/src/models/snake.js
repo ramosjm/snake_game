@@ -41,7 +41,14 @@ Snake.prototype.goUp = function(){
   this.components.forEach((component)=>{
     component.goUp();
   });
-}
+};
+
+Snake.prototype.goDown = function(){
+  this.components.forEach((component)=>{
+    component.goDown();
+  });
+};
+
 
 
 module.exports = Snake;
